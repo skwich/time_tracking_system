@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
 
     core::translator translator;
 
-    engine.loadFromModule("time_tracking_system", "Login");
+    engine.loadFromModule("time_tracking_system", "Main");
 
     return app.exec();
 }

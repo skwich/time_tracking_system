@@ -1,61 +1,57 @@
 import QtQuick
-import QtQuick.Layouts
 import QtQuick.Controls
 
-Window {
-    width: 640
-    height: 480
+ApplicationWindow {
+    width: 1280
+    height: 640
     visible: true
     color: "#212121"
     title: qsTr("Enterprise Resource Planning")
 
-    ColumnLayout {
-        anchors.centerIn: parent
-        spacing:15
-
-        Text {
-            text: qsTr("Sing in")
-            color: "white"
-            Layout.alignment: Qt.AlignCenter
+    StackView {
+        id: stack_view
+        anchors.fill: parent
+        
+        initialItem: Login {
+            onAuthorize: stack_view.push(locationsComponent)
         }
 
-        RowLayout {
-            spacing: 10
-            Layout.alignment: Qt.AlignVCenter
-
-            Text {
-                text: qsTr("Login:")
-                color: "white"
-                horizontalAlignment: Text.AlignRight
-                Layout.preferredWidth: 60
-            }
-
-            TextField {
-                color: "white"
+        pushEnter: Transition {
+            PropertyAnimation {
+                property: "opacity"
+                from: 0
+                to:1
+                duration: 200
             }
         }
-
-        RowLayout {
-            spacing: 10
-            Layout.alignment: Qt.AlignVCenter
-
-            Text {
-                text: qsTr("Password:")
-                color: "white"
-                horizontalAlignment: Text.AlignRight
-                Layout.preferredWidth: 60
-            }
-
-            TextField {
-                color: "white"
+        pushExit: Transition {
+            PropertyAnimation {
+                property: "opacity"
+                from: 1
+                to:0
+                duration: 200
             }
         }
-
-        Button {
-            text: qsTr("Enter")
-            Layout.preferredWidth: 60
-            Layout.preferredHeight: 30
-            Layout.alignment: Qt.AlignCenter
+        popEnter: Transition {
+            PropertyAnimation {
+                property: "opacity"
+                from: 0
+                to:1
+                duration: 200
+            }
         }
+        popExit: Transition {
+            PropertyAnimation {
+                property: "opacity"
+                from: 1
+                to:0
+                duration: 200
+            }
+        }
+    }
+
+    Component {
+        id: locationsComponent
+        Locations{}
     }
 }

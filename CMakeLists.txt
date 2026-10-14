@@ -24,11 +24,13 @@ qt_add_qml_module(${APP_NAME}
         src/gui/Main.qml
         src/gui/Login.qml
         src/gui/Locations.qml
+        src/gui/LocationCard.qml
 )
 
 qt_add_translations(${APP_NAME}
     TS_FILES
         ${CMAKE_CURRENT_SOURCE_DIR}/lang/ru.ts
+        ${CMAKE_CURRENT_SOURCE_DIR}/lang/en.ts
     SOURCE_TARGETS
         ${APP_NAME}
 )

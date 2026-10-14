@@ -2,12 +2,11 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 
-Window {
-    width: 640
-    height: 480
+Page {
+    id: loginPage
     visible: true
-    color: "#212121"
-    title: qsTr("Enterprise Resource Planning")
+
+    signal authorize
 
     ColumnLayout {
         anchors.centerIn: parent
@@ -16,6 +15,7 @@ Window {
         Text {
             text: qsTr("Sing in")
             color: "white"
+            font.pointSize: 20
             Layout.alignment: Qt.AlignCenter
         }
 
@@ -32,6 +32,7 @@ Window {
 
             TextField {
                 color: "white"
+                Layout.preferredWidth: 240
             }
         }
 
@@ -48,6 +49,7 @@ Window {
 
             TextField {
                 color: "white"
+                Layout.preferredWidth: 240
             }
         }
 
@@ -56,6 +58,10 @@ Window {
             Layout.preferredWidth: 60
             Layout.preferredHeight: 30
             Layout.alignment: Qt.AlignCenter
+
+            onClicked: {
+                loginPage.authorize()
+            }
         }
     }
 }
