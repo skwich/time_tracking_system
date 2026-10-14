@@ -1,0 +1,34 @@
+---
+Checks: >
+  -*,
+  bugprone-*,
+  modernize-*,
+  performance-*,
+  cppcoreguidelines-avoid-goto,
+  cppcoreguidelines-init-variables,
+  cppcoreguidelines-interfaces-global-init,
+  cppcoreguidelines-macro-usage,
+  cppcoreguidelines-narrowing-conversions,
+  cppcoreguidelines-no-malloc,
+  cppcoreguidelines-pro-bounds-pointer-arithmetic,
+  cppcoreguidelines-pro-type-const-cast,
+  cppcoreguidelines-pro-type-static-cast-downcast,
+  cppcoreguidelines-slicing,
+  cppcoreguidelines-special-member-functions
+
+WarningsAsErrors: ''
+HeaderFilterRegex: '.*'
+FormatOnReplacements: true
+
+CheckOptions:
+  - key:    readability-identifier-naming.ClassCase
+  - value:  lower_case
+  - key:    readability-identifier-naming.PrivateMemberSuffix
+  - value:  lower_case
+  - key:    readability-identifier-naming.FunctionCase
+  - value:  lower_case
+  - key:    readability-identifier-naming.VariableCase
+  - value:  lower_case
+  - key:    readability-identifier-naming.MacroDefinitionCase
+  - value:  UPPER_CASE
+---

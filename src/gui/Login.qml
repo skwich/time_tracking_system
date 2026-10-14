@@ -7,7 +7,7 @@ Window {
     height: 480
     visible: true
     color: "#212121"
-    title: qsTr("Time tracking system")
+    title: qsTr("Enterprise Resource Planning")
 
     ColumnLayout {
         anchors.centerIn: parent
@@ -16,7 +16,7 @@ Window {
         Text {
             text: qsTr("Sing in")
             color: "white"
-            Layout.alignment: Qt.AlignCenter            
+            Layout.alignment: Qt.AlignCenter
         }
 
         RowLayout {

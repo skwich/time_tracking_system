@@ -1,17 +1,19 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-int main(int argc, char *argv[])
+#include "core/translator.h"
+
+int main(int argc, char* argv[])
 {
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
     QObject::connect(
-        &engine,
-        &QQmlApplicationEngine::objectCreationFailed,
-        &app,
-        []() { QCoreApplication::exit(-1); },
+        &engine, &QQmlApplicationEngine::objectCreationFailed, &app, []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
+
+    core::translator translator;
+
     engine.loadFromModule("time_tracking_system", "Login");
 
     return app.exec();
